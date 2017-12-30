@@ -1,5 +1,5 @@
 
-namespace Kata.Coins.Logic;
+namespace Kata.Coins.Logic
 {
     public class Splitter
     {
