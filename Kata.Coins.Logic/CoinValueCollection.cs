@@ -5,22 +5,41 @@ namespace Kata.Coins.Logic
 {
     public class CoinValueCollection
     {
-        public readonly CoinValueCollection EuroCoins = new CoinValueCollection("Euro", new int[]{200, 100, 50, 20, 10, 5, 2, 1});
-        public readonly CoinValueCollection DollarCoins = new CoinValueCollection("Dollar", new int[]{200, 100, 50, 25, 10, 5, 1});
+        public static readonly CoinValueCollection EuroCoins = new CoinValueCollection("Euro", new CoinValue[]
+        {
+            new CoinValue(200, "2€"),
+            new CoinValue(100, "1€"),
+            new CoinValue(50, "50c"),
+            new CoinValue(20, "20c"),
+            new CoinValue(10, "10c"),
+            new CoinValue(5, "5c"),
+            new CoinValue(2, "2c"),
+            new CoinValue(1, "1c"),
+        });
+        public static readonly CoinValueCollection DollarCoins = new CoinValueCollection("Dollar", new CoinValue[]       
+        {
+            new CoinValue(200, "2$"),
+            new CoinValue(100, "1$"),
+            new CoinValue(50, "50c"),
+            new CoinValue(25, "25c"),
+            new CoinValue(10, "10c"),
+            new CoinValue(5, "5c"),
+            new CoinValue(1, "1c"),
+        });
 
         private string Name;
 
-        private int[] Values; 
+        private CoinValue[] Values; 
 
-        private CoinValueCollection(String name, int[] values)
+        private CoinValueCollection(String name, CoinValue[] values)
         {
             this.Name = name;
             this.Values = values;
         }
 
-        public int[] ToArray()
+        public CoinValue[] ToArray()
         {
-            int[] copy = new int[this.Values.Length];
+            CoinValue[] copy = new CoinValue[this.Values.Length];
             this.Values.CopyTo(copy, 0);
             return copy;
         }
